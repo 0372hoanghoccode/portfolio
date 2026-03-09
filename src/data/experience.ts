@@ -11,7 +11,7 @@ export const experiences: Experience[] = [
     date: 'Jan 2026',
     company: 'shadcn/ui (Open Source)',
     role: 'Contributor — PR #9292 merged',
-    description: 'Contributed a bug fix to the Calendar component. PR reviewed and merged by the maintainers.',
+    description: 'Contributed a bug fix to shadcn/ui — one of the most widely used open-source UI libraries in the React ecosystem (70k+ GitHub stars). PR reviewed and merged by the maintainers.',
     type: 'project',
   },
   {
