@@ -8,6 +8,13 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    date: 'Jan 2026',
+    company: 'shadcn/ui (Open Source)',
+    role: 'Contributor — PR #9292 merged',
+    description: 'Fixed a CSS classname typo in the Calendar component (`elative` → `relative` in `range_start`). Contributed to one of the most popular UI component libraries in the React ecosystem (50k+ GitHub stars).',
+    type: 'project',
+  },
+  {
     date: '2024 — Present',
     company: 'Personal / Open Source',
     role: 'Fullstack Developer',
