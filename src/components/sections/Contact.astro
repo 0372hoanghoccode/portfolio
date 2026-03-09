@@ -1,0 +1,167 @@
+---
+import { siteConfig } from '../../data/config';
+---
+
+<section id="section-contact" class="editor-section section-enter" style="min-height: 50vh; border-top: 1px solid var(--vsc-border);">
+  <div class="terminal-window">
+    <div class="terminal-titlebar">
+      <div class="terminal-dots">
+        <span class="dot dot-red"></span>
+        <span class="dot dot-yellow"></span>
+        <span class="dot dot-green"></span>
+      </div>
+      <span class="terminal-title">bash — portfolio</span>
+    </div>
+
+    <div class="terminal-body">
+      <!-- Welcome line -->
+      <div class="terminal-line">
+        <span class="term-prompt">visitor@portfolio</span>
+        <span class="term-sep">:</span>
+        <span class="term-path">~</span>
+        <span class="term-sep">$</span>
+        <span class="term-cmd"> whoami</span>
+      </div>
+      <div class="terminal-output">
+        <span class="token-string">Vũ Huy Hoàng</span>
+        <span class="token-comment"> # Fullstack Developer — Vietnam</span>
+      </div>
+
+      <div class="terminal-line" style="margin-top: 12px;">
+        <span class="term-prompt">visitor@portfolio</span>
+        <span class="term-sep">:</span>
+        <span class="term-path">~</span>
+        <span class="term-sep">$</span>
+        <span class="term-cmd"> cat contact.json</span>
+      </div>
+      <div class="terminal-output">
+        <pre class="term-json"><span class="token-punct">{"{"}</span>
+  <span class="token-property">"github"</span><span class="token-operator">: </span><a href={siteConfig.github} target="_blank" rel="noopener noreferrer" class="term-link token-string">"{siteConfig.github}"</a><span class="token-punct">,</span>
+  <span class="token-property">"email"</span><span class="token-operator">: </span><a href={`mailto:${siteConfig.email}`} class="term-link token-string">"{siteConfig.email}"</a><span class="token-punct">,</span>
+  <span class="token-property">"location"</span><span class="token-operator">: </span><span class="token-string">"{siteConfig.location}"</span><span class="token-punct">,</span>
+  <span class="token-property">"available"</span><span class="token-operator">: </span><span class="token-constant">true</span>
+<span class="token-punct">{"}"}</span></pre>
+      </div>
+
+      <div class="terminal-line" style="margin-top: 12px;">
+        <span class="term-prompt">visitor@portfolio</span>
+        <span class="term-sep">:</span>
+        <span class="term-path">~</span>
+        <span class="term-sep">$</span>
+        <span class="term-cmd"> echo "Open to new opportunities!"</span>
+      </div>
+      <div class="terminal-output token-string">Open to new opportunities!</div>
+
+      <div class="terminal-line" style="margin-top: 12px;">
+        <span class="term-prompt">visitor@portfolio</span>
+        <span class="term-sep">:</span>
+        <span class="term-path">~</span>
+        <span class="term-sep">$</span>
+        <span class="terminal-cursor"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.terminal-window {
+  background: var(--vsc-bg-terminal);
+  border: 1px solid var(--vsc-border);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 680px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.terminal-titlebar {
+  background: #333333;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid var(--vsc-border);
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.dot-red    { background: #ff5f57; }
+.dot-yellow { background: #ffbd2e; }
+.dot-green  { background: #28c840; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--vsc-text-secondary);
+  flex: 1;
+  text-align: center;
+  margin-right: 54px;
+}
+
+.terminal-body {
+  padding: 16px 20px 24px;
+  min-height: 280px;
+}
+
+.terminal-line {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  line-height: 1.8;
+}
+
+.term-prompt {
+  color: var(--vsc-accent-green);
+  font-weight: 600;
+}
+
+.term-sep {
+  color: var(--vsc-text-muted);
+}
+
+.term-path {
+  color: var(--vsc-syntax-keyword);
+}
+
+.term-cmd {
+  color: var(--vsc-text-primary);
+}
+
+.terminal-output {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  color: var(--vsc-text-primary);
+  line-height: 1.6;
+  padding-left: 0;
+  margin-top: 2px;
+}
+
+.term-json {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  margin: 0;
+  padding: 8px 12px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 4px;
+  border: 1px solid var(--vsc-border);
+}
+
+.term-link {
+  text-decoration: none;
+}
+
+.term-link:hover {
+  text-decoration: underline;
+}
+</style>

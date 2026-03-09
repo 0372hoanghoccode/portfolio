@@ -1,0 +1,81 @@
+---
+import { siteConfig } from '../../data/config';
+---
+
+<div class="status-bar" role="status" aria-label="Status Bar">
+  <div class="status-bar-left">
+    <a
+      class="status-item"
+      href={siteConfig.repoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      title="Open repository"
+    >
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/>
+        <path d="M6 9v6m9-3H9"/>
+      </svg>
+      <span>⎇ main</span>
+    </a>
+    <span class="status-item" title="No problems">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><path d="m15 9-6 6m0-6 6 6"/>
+      </svg>
+      0
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+      </svg>
+      0
+    </span>
+    {siteConfig.available && (
+      <span class="status-item" style="color: rgba(255,255,255,0.9);" title="Open to work">
+        <span style="display:inline-block; width:8px; height:8px; border-radius:50%; background: #4ec9b0; margin-right: 4px;"></span>
+        Open to work
+      </span>
+    )}
+  </div>
+
+  <div class="status-bar-right">
+    <span class="status-item" id="status-lang">Markdown</span>
+    <span class="status-item">UTF-8</span>
+    <span class="status-item" id="status-position">Ln 1, Col 1</span>
+    <span class="status-item" title="Astro">
+      <svg width="11" height="11" viewBox="0 0 128 128" fill="currentColor">
+        <path d="M81.4 32.9c-1.2 1.4-1.8 3.3-3 7.1L61.7 94.3c6.4-1.6 11.8-3.4 17.1-6.7s9.9-7.8 13.5-13.3L81.4 32.9zM46.6 32.9L35.6 74.3c3.6 5.5 8.1 10 13.5 13.3s10.7 5.1 17.1 6.7L49.6 40c-1.2-3.8-1.8-5.7-3-7.1z"/>
+        <path d="M64 16L28.6 88.3c12.5 8.7 25.4 13.7 35.4 13.7s22.9-5 35.4-13.7L64 16z" opacity=".5"/>
+      </svg>
+      Astro
+    </span>
+  </div>
+</div>
+
+<script>
+  // Update position on scroll
+  const editorContent = document.querySelector('.ide-editor-content');
+  const posEl = document.getElementById('status-position');
+
+  if (editorContent && posEl) {
+    editorContent.addEventListener('scroll', () => {
+      const scrollPct = editorContent.scrollTop / (editorContent.scrollHeight - editorContent.clientHeight);
+      const lineEst = Math.round(1 + scrollPct * 120);
+      posEl.textContent = `Ln ${lineEst}, Col 1`;
+    });
+  }
+
+  // Update language based on active tab
+  const langEl = document.getElementById('status-lang');
+  const langMap: Record<string, string> = {
+    explorer: 'Markdown',
+    projects: 'Directory',
+    skills:   'JSON',
+    git:      'Markdown',
+    contact:  'Shell',
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-section]').forEach(el => {
+    el.addEventListener('click', () => {
+      const s = el.dataset.section;
+      if (s && langEl) langEl.textContent = langMap[s] ?? 'Markdown';
+    });
+  });
+</script>

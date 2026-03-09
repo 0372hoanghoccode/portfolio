@@ -1,0 +1,307 @@
+/* ============================================
+   Animations & Transitions
+   ============================================ */
+
+/* ---- Keyframes ---- */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes expandWidth {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+
+  to {
+    width: var(--sidebar-width);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 100%;
+  }
+}
+
+/* ---- Staggered Load Sequence ---- */
+.activity-bar {
+  animation: slideInLeft 0.3s ease 0s both;
+}
+
+.sidebar {
+  animation: expandWidth 0.35s ease 0.1s both;
+}
+
+.tab-bar {
+  animation: slideInDown 0.3s ease 0.2s both;
+}
+
+.ide-editor-content {
+  animation: fadeIn 0.4s ease 0.35s both;
+}
+
+.status-bar {
+  animation: slideInUp 0.3s ease 0.4s both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .activity-bar,
+  .sidebar,
+  .tab-bar,
+  .ide-editor-content,
+  .status-bar {
+    animation: none;
+  }
+}
+
+/* ---- Blinking Cursor ---- */
+.terminal-cursor {
+  display: inline-block;
+  color: var(--vsc-text-primary);
+}
+
+.terminal-cursor::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  margin-left: 1px;
+}
+
+/* ---- Command Palette ---- */
+.command-palette-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 200;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 15vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.command-palette-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.command-palette-box {
+  background: var(--vsc-bg-dropdown);
+  border: 1px solid var(--vsc-border-focus);
+  border-radius: 6px;
+  width: min(640px, 90vw);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+  animation: scaleIn 0.15s ease both;
+  overflow: hidden;
+}
+
+.command-palette-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--vsc-border);
+  color: var(--vsc-text-primary);
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  padding: var(--space-3) var(--space-4);
+  outline: none;
+}
+
+.command-palette-input::placeholder {
+  color: var(--vsc-text-muted);
+}
+
+.command-palette-results {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.cp-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-4);
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--vsc-text-primary);
+  transition: background 0.1s ease;
+}
+
+.cp-item:hover,
+.cp-item.selected {
+  background: var(--vsc-bg-selection);
+}
+
+.cp-item .cp-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--vsc-text-secondary);
+  flex-shrink: 0;
+}
+
+.cp-item .cp-badge {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--vsc-text-muted);
+  background: var(--vsc-bg-input);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.cp-footer {
+  padding: var(--space-2) var(--space-4);
+  border-top: 1px solid var(--vsc-border);
+  font-family: var(--font-ui);
+  font-size: var(--text-xs);
+  color: var(--vsc-text-muted);
+  display: flex;
+  gap: var(--space-3);
+}
+
+/* ---- Project Card ---- */
+.project-card {
+  background: var(--vsc-bg-sidebar);
+  border: 1px solid var(--vsc-border);
+  border-radius: 6px;
+  padding: var(--space-5);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  border-color: var(--vsc-border-focus);
+  box-shadow: 0 0 0 1px var(--vsc-accent-subtle);
+}
+
+/* ---- Skill Badge ---- */
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: var(--vsc-bg-input);
+  border: 1px solid var(--vsc-border);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--vsc-syntax-string);
+  transition: border-color 0.1s ease;
+}
+
+.skill-badge:hover {
+  border-color: var(--vsc-syntax-string);
+}
+
+/* ---- Section entrance animations ---- */
+.section-enter {
+  animation: fadeIn 0.4s ease both;
+}
+
+.section-enter:nth-child(2) {
+  animation-delay: 0.05s;
+}
+
+.section-enter:nth-child(3) {
+  animation-delay: 0.1s;
+}
+
+.section-enter:nth-child(4) {
+  animation-delay: 0.15s;
+}
+
+.section-enter:nth-child(5) {
+  animation-delay: 0.2s;
+}
+
+.section-enter:nth-child(6) {
+  animation-delay: 0.25s;
+}

@@ -1,0 +1,53 @@
+---
+interface Props {
+  activeSection?: string;
+  activeFile?: string;
+}
+const { activeSection = 'explorer', activeFile = 'README.md' } = Astro.props;
+
+const sectionPaths: Record<string, string[]> = {
+  explorer: ['PORTFOLIO', 'README.md'],
+  projects: ['PORTFOLIO', 'projects'],
+  skills:   ['PORTFOLIO', 'package.json'],
+  git:      ['PORTFOLIO', 'CHANGELOG.md'],
+  contact:  ['PORTFOLIO', 'terminal'],
+};
+
+const path = sectionPaths[activeSection] ?? ['PORTFOLIO', activeFile];
+---
+
+<nav class="breadcrumb" aria-label="Breadcrumb" id="breadcrumb">
+  {path.map((part, i) => (
+    <>
+      {i > 0 && <span class="breadcrumb-sep">›</span>}
+      <span class={`breadcrumb-item${i === path.length - 1 ? ' current' : ''}`}>{part}</span>
+    </>
+  ))}
+</nav>
+
+<script>
+  const paths: Record<string, string[]> = {
+    explorer: ['PORTFOLIO', 'README.md'],
+    projects: ['PORTFOLIO', 'projects'],
+    skills:   ['PORTFOLIO', 'package.json'],
+    git:      ['PORTFOLIO', 'CHANGELOG.md'],
+    contact:  ['PORTFOLIO', 'terminal'],
+  };
+
+  function updateBreadcrumb(section: string) {
+    const nav = document.getElementById('breadcrumb');
+    if (!nav) return;
+    const parts = paths[section] ?? ['PORTFOLIO'];
+    nav.innerHTML = parts.map((p, i) =>
+      (i > 0 ? '<span class="breadcrumb-sep">›</span>' : '') +
+      `<span class="breadcrumb-item${i === parts.length - 1 ? ' current' : ''}">${p}</span>`
+    ).join('');
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-section]').forEach(el => {
+    el.addEventListener('click', () => {
+      const s = el.dataset.section;
+      if (s) updateBreadcrumb(s);
+    });
+  });
+</script>

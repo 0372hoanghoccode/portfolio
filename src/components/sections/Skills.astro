@@ -1,0 +1,113 @@
+---
+import { skills } from '../../data/skills';
+---
+
+<section id="section-skills" class="editor-section section-enter" style="min-height: 60vh; border-top: 1px solid var(--vsc-border);">
+  <div class="editor-with-lines">
+    <div class="line-numbers" aria-hidden="true">
+      {Array.from({ length: 60 }, (_, i) => (
+        <span class="ln">{i + 100}</span>
+      ))}
+    </div>
+    <div class="editor-lines">
+      <div class="code-line"><span class="token-comment">// package.json — dependencies</span></div>
+      <div class="code-line">&nbsp;</div>
+      <div class="code-line">
+        <span class="token-punct">{"{"}</span>
+      </div>
+      <div class="code-line" style="padding-left: 2ch;">
+        <span class="token-property">"name"</span>
+        <span class="token-operator">: </span>
+        <span class="token-string">"vu-huy-hoang-portfolio"</span>
+        <span class="token-punct">,</span>
+      </div>
+      <div class="code-line" style="padding-left: 2ch;">
+        <span class="token-property">"version"</span>
+        <span class="token-operator">: </span>
+        <span class="token-string">"2026.3.9"</span>
+        <span class="token-punct">,</span>
+      </div>
+      <div class="code-line" style="padding-left: 2ch;">
+        <span class="token-property">"dependencies"</span>
+        <span class="token-operator">: </span>
+        <span class="token-punct">{"{"}</span>
+      </div>
+
+      <!-- Skills groups -->
+      <div class="skills-grid">
+        {skills.map((group, gi) => (
+          <div class="skill-group section-enter" style={`animation-delay: ${gi * 0.06}s`}>
+            <div class="skill-group-header">
+              <span class="token-comment">// {group.icon} {group.category}</span>
+            </div>
+            <div class="skill-group-items">
+              {group.items.map(item => (
+                <div class="skill-dep-line">
+                  <span class="token-punct">"</span>
+                  <span class="skill-name" style={`color: ${group.color}`}>{item}</span>
+                  <span class="token-punct">"</span>
+                  <span class="token-operator">: </span>
+                  <span class="token-string">"latest"</span>
+                  <span class="token-punct">,</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="code-line" style="padding-left: 2ch;">
+        <span class="token-punct">{"}"}</span>
+      </div>
+      <div class="code-line">
+        <span class="token-punct">{"}"}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+  margin: 16px 0;
+  padding-left: 4ch;
+}
+
+.skill-group {
+  background: var(--vsc-bg-sidebar);
+  border: 1px solid var(--vsc-border);
+  border-radius: 4px;
+  padding: 14px 16px;
+}
+
+.skill-group-header {
+  margin-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+.skill-group-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.skill-dep-line {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  line-height: 1.8;
+  padding-left: 4px;
+}
+
+.skill-name {
+  font-weight: 500;
+}
+
+.code-line {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  line-height: var(--line-height-editor);
+}
+</style>

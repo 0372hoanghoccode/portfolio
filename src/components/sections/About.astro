@@ -1,0 +1,148 @@
+---
+import { siteConfig } from '../../data/config';
+---
+
+<section id="section-explorer-about" class="editor-section section-enter" style="min-height: 60vh; border-top: 1px solid var(--vsc-border);">
+  <div class="editor-with-lines">
+    <div class="line-numbers" aria-hidden="true">
+      {Array.from({ length: 50 }, (_, i) => (
+        <span class="ln">{i + 43}</span>
+      ))}
+    </div>
+    <div class="editor-lines">
+
+      <!-- README heading -->
+      <div class="md-h1"># About <span class="token-function">{siteConfig.name}</span></div>
+      <div class="code-line">&nbsp;</div>
+
+      <div class="md-h2">## Who I Am</div>
+      <div class="md-p">
+        I'm a <strong class="token-keyword">Fullstack Developer</strong> from Vietnam with a passion for building
+        <span class="token-string"> scalable, production-ready systems</span> — from polished UIs to distributed microservice backends.
+      </div>
+      <div class="code-line">&nbsp;</div>
+
+      <div class="md-h2">## What I Do</div>
+      <div class="md-list-item">
+        <span class="token-operator">→ </span>
+        <span>Build <span class="token-class">React</span> & <span class="token-class">Next.js</span> frontends with great UX</span>
+      </div>
+      <div class="md-list-item">
+        <span class="token-operator">→ </span>
+        <span>Design <span class="token-class">Spring Boot</span> & <span class="token-class">NestJS</span> backends</span>
+      </div>
+      <div class="md-list-item">
+        <span class="token-operator">→ </span>
+        <span>Architect <span class="token-class">microservices</span> with message queues & distributed DBs</span>
+      </div>
+      <div class="md-list-item">
+        <span class="token-operator">→ </span>
+        <span>Integrate <span class="token-class">AI/RAG</span> features with LangChain4j & VectorDB</span>
+      </div>
+      <div class="code-line">&nbsp;</div>
+
+      <div class="md-h2">## My Approach</div>
+      <div class="md-p">
+        I believe great software is the intersection of clean architecture and thoughtful design.
+        Every system I build is designed to be <span class="token-string">maintainable</span>,
+        <span class="token-string"> observable</span>, and <span class="token-string">scalable</span>.
+      </div>
+      <div class="code-line">&nbsp;</div>
+
+      <!-- Stats row -->
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-value token-number">3+</div>
+          <div class="stat-label">Projects in Production</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value token-number">400+</div>
+          <div class="stat-label">Daily Active Users</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value token-number">5</div>
+          <div class="stat-label">Core Tech Areas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value token-number">∞</div>
+          <div class="stat-label">Things to Learn</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.md-h1 {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--vsc-text-primary);
+  line-height: 1.3;
+  margin-bottom: 4px;
+}
+
+.md-h2 {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--vsc-text-primary);
+  line-height: 1.3;
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+
+.md-p {
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  color: var(--vsc-text-secondary);
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: 8px;
+}
+
+.md-list-item {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  color: var(--vsc-text-secondary);
+  line-height: 2;
+  padding-left: 8px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+  max-width: 600px;
+}
+
+.stat-card {
+  padding: 16px;
+  background: var(--vsc-bg-sidebar);
+  border: 1px solid var(--vsc-border);
+  border-radius: 4px;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--vsc-text-muted);
+}
+
+.code-line {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  line-height: var(--line-height-editor);
+}
+</style>

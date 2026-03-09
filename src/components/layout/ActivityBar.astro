@@ -1,0 +1,99 @@
+---
+interface Props {
+  activeSection?: string;
+}
+const { activeSection = 'explorer' } = Astro.props;
+
+const items = [
+  { id: 'explorer', label: 'Explorer', title: 'Explorer' },
+  { id: 'projects', label: 'Projects', title: 'Extensions' },
+  { id: 'skills',   label: 'Skills',   title: 'Extensions' },
+  { id: 'git',      label: 'Experience', title: 'Source Control' },
+  { id: 'contact',  label: 'Contact',  title: 'Accounts' },
+];
+---
+
+<div class="activity-bar" role="navigation" aria-label="Activity Bar">
+  <div class="activity-bar-top">
+    {items.map(item => (
+      <button
+        class={`activity-bar-item${activeSection === item.id ? ' active' : ''}`}
+        data-section={item.id}
+        aria-label={item.title}
+        type="button"
+      >
+        {item.id === 'explorer' && (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 0 1 4.5 9.75h15A2.25 2.25 0 0 1 21.75 12v.75m-8.69-6.44-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z" />
+          </svg>
+        )}
+        {item.id === 'projects' && (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 9.75 16.5 12l-2.25 2.25m-4.5 0L7.5 12l2.25-2.25M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z" />
+          </svg>
+        )}
+        {item.id === 'skills' && (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.25 6.75 22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3-4.5 16.5" />
+          </svg>
+        )}
+        {item.id === 'git' && (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 4.5v15m6-15v15m-10.875 0h15.75c.621 0 1.125-.504 1.125-1.125V5.625c0-.621-.504-1.125-1.125-1.125H4.125C3.504 4.5 3 5.004 3 5.625v12.75c0 .621.504 1.125 1.125 1.125Z" />
+          </svg>
+        )}
+        {item.id === 'contact' && (
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+          </svg>
+        )}
+        <span class="tooltip">{item.title}</span>
+      </button>
+    ))}
+  </div>
+  <div class="activity-bar-spacer"></div>
+  <div class="activity-bar-bottom">
+    <a
+      class="activity-bar-item"
+      href="https://github.com/0372hoanghoccode"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub Profile"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+      </svg>
+      <span class="tooltip">GitHub</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  // Sync activity bar with tab navigation
+  document.querySelectorAll<HTMLButtonElement>('.activity-bar-item[data-section]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const section = btn.dataset.section;
+      if (!section) return;
+
+      // Update active state on activity bar
+      document.querySelectorAll('.activity-bar-item[data-section]').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      // Scroll to section
+      const target = document.getElementById(`section-${section}`);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      // Update sidebar
+      document.querySelectorAll('.sidebar-item[data-section]').forEach(item => {
+        item.classList.toggle('active', (item as HTMLElement).dataset.section === section);
+      });
+
+      // Update tab bar
+      document.querySelectorAll<HTMLElement>('.tab[data-section]').forEach(tab => {
+        tab.classList.toggle('active', tab.dataset.section === section);
+      });
+    });
+  });
+</script>

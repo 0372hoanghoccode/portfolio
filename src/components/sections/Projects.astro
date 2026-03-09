@@ -1,0 +1,178 @@
+---
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="section-projects" class="editor-section section-enter" style="min-height: 60vh; border-top: 1px solid var(--vsc-border);">
+  <div style="padding: 0 0 32px 0;">
+    <div class="section-heading token-comment">// projects/ — Featured work</div>
+
+    <div class="projects-grid">
+      {projects.map((project, idx) => (
+        <article class="project-card section-enter" style={`animation-delay: ${idx * 0.08}s`}>
+          <!-- Card header -->
+          <div class="project-card-header">
+            <div class="project-title-row">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" style="color: #dcb67a; flex-shrink: 0;">
+                <path d="M19.5 21a3 3 0 0 0 3-3v-4.5a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3V18a3 3 0 0 0 3 3h15Z" />
+                <path d="M1.5 10.146V6a3 3 0 0 1 3-3h5.379a2.25 2.25 0 0 1 1.59.659l2.122 2.121c.14.141.333.22.53.22H19.5a3 3 0 0 1 3 3v1.146A4.483 4.483 0 0 0 19.5 9h-15a4.483 4.483 0 0 0-3 1.146Z" />
+              </svg>
+              <h3 class="project-name">{project.data.title}</h3>
+              <span class={`project-status status-${project.data.status}`}>{project.data.status}</span>
+            </div>
+          </div>
+
+          <!-- Description -->
+          <p class="project-description">{project.data.description}</p>
+
+          <!-- Stats (if present) -->
+          {project.data.stats && (
+            <div class="project-stats">
+              {Object.entries(project.data.stats).map(([key, val]) => (
+                <div class="project-stat">
+                  <span class="token-comment">// {key}</span>
+                  <span class="token-string">{val}</span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <!-- Tech stack -->
+          <div class="project-tech">
+            {project.data.tech.map(t => (
+              <span class="skill-badge">{t}</span>
+            ))}
+          </div>
+
+          <!-- Links -->
+          <div class="project-links">
+            {project.data.github && (
+              <a href={project.data.github} target="_blank" rel="noopener noreferrer" class="project-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+                </svg>
+                View Source
+              </a>
+            )}
+            {project.data.live && (
+              <a href={project.data.live} target="_blank" rel="noopener noreferrer" class="project-link primary">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                </svg>
+                Live Demo
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.project-card-header {
+  margin-bottom: 10px;
+}
+
+.project-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--vsc-syntax-function);
+  flex: 1;
+}
+
+.project-status {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.status-active  { background: rgba(129, 184, 139, 0.15); color: var(--vsc-git-added); border: 1px solid rgba(129,184,139,0.3); }
+.status-wip     { background: rgba(226, 192, 141, 0.15); color: var(--vsc-git-modified); border: 1px solid rgba(226,192,141,0.3); }
+.status-archived{ background: rgba(107,114,128,0.15); color: var(--vsc-text-muted); border: 1px solid rgba(107,114,128,0.3); }
+
+.project-description {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  color: var(--vsc-text-secondary);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.project-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: var(--vsc-bg-editor);
+  border-radius: 4px;
+  border: 1px solid var(--vsc-border);
+}
+
+.project-stat {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.project-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--vsc-text-secondary);
+  padding: 4px 10px;
+  border: 1px solid var(--vsc-border);
+  border-radius: 3px;
+  text-decoration: none;
+  transition: border-color 0.1s ease, color 0.1s ease;
+}
+
+.project-link:hover {
+  border-color: var(--vsc-text-secondary);
+  color: var(--vsc-text-primary);
+  text-decoration: none;
+}
+
+.project-link.primary {
+  border-color: var(--vsc-accent);
+  color: var(--vsc-accent);
+}
+
+.project-link.primary:hover {
+  background: var(--vsc-accent-subtle);
+  text-decoration: none;
+}
+</style>

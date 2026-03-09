@@ -1,0 +1,61 @@
+---
+import ActivityBar from '../components/layout/ActivityBar.astro';
+import Sidebar from '../components/layout/Sidebar.astro';
+import TabBar from '../components/layout/TabBar.astro';
+import StatusBar from '../components/layout/StatusBar.astro';
+import BreadcrumbNav from '../components/layout/BreadcrumbNav.astro';
+import CommandPalette from '../components/ui/CommandPalette';
+
+import '../styles/tokens.css';
+import '../styles/editor.css';
+import '../styles/animations.css';
+
+interface Props {
+  activeSection?: string;
+  pageTitle?: string;
+  title?: string;
+  description?: string;
+}
+
+const {
+  activeSection = 'explorer',
+  pageTitle = 'README.md',
+  title = 'Vũ Huy Hoàng — Fullstack Developer',
+  description = 'Portfolio of Vũ Huy Hoàng — Fullstack Developer specializing in React, Next.js, Spring Boot, and microservices architecture.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#1e1e1e" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+</head>
+<body>
+  <div class="ide-root" id="ide-root" data-active={activeSection}>
+    <ActivityBar activeSection={activeSection} />
+
+    <div class="ide-editor-area">
+      <TabBar activeSection={activeSection} activeFile={pageTitle} />
+      <BreadcrumbNav activeSection={activeSection} activeFile={pageTitle} />
+      <main class="ide-editor-content" id="editor-content">
+        <slot />
+      </main>
+    </div>
+
+    <Sidebar activeSection={activeSection} />
+
+    <StatusBar />
+
+    <!-- Command Palette (React island) -->
+    <CommandPalette client:load />
+  </div>
+</body>
+</html>

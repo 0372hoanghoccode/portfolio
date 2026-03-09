@@ -1,0 +1,185 @@
+/* ============================================
+   VSCode Design Tokens — One Dark Pro Theme
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ---- Backgrounds ---- */
+  --vsc-bg-editor: #1e1e1e;
+  --vsc-bg-sidebar: #252526;
+  --vsc-bg-activity-bar: #333333;
+  --vsc-bg-tab-active: #1e1e1e;
+  --vsc-bg-tab-inactive: #2d2d2d;
+  --vsc-bg-status-bar: #007acc;
+  --vsc-bg-terminal: #1e1e1e;
+  --vsc-bg-hover: #2a2d2e;
+  --vsc-bg-selection: #264f78;
+  --vsc-bg-highlight: #0d3a58;
+  --vsc-bg-dropdown: #252526;
+  --vsc-bg-input: #3c3c3c;
+  --vsc-bg-panel: #1e1e1e;
+
+  /* ---- Borders ---- */
+  --vsc-border: #3c3c3c;
+  --vsc-border-focus: #007acc;
+  --vsc-border-light: #454545;
+
+  /* ---- Text ---- */
+  --vsc-text-primary: #d4d4d4;
+  --vsc-text-secondary: #858585;
+  --vsc-text-muted: #6a6a6a;
+  --vsc-text-active: #ffffff;
+  --vsc-text-link: #4ec9b0;
+  --vsc-text-disabled: #555555;
+
+  /* ---- Syntax Colors ---- */
+  --vsc-syntax-keyword: #569cd6;
+  --vsc-syntax-string: #ce9178;
+  --vsc-syntax-number: #b5cea8;
+  --vsc-syntax-comment: #6a9955;
+  --vsc-syntax-function: #dcdcaa;
+  --vsc-syntax-class: #4ec9b0;
+  --vsc-syntax-variable: #9cdcfe;
+  --vsc-syntax-operator: #d4d4d4;
+  --vsc-syntax-type: #4ec9b0;
+  --vsc-syntax-tag: #4ec9b0;
+  --vsc-syntax-attribute: #9cdcfe;
+  --vsc-syntax-property: #9cdcfe;
+  --vsc-syntax-punctuation: #808080;
+  --vsc-syntax-regex: #d16969;
+  --vsc-syntax-constant: #4fc1ff;
+
+  /* ---- Accent ---- */
+  --vsc-accent: #007acc;
+  --vsc-accent-hover: #1a8ad4;
+  --vsc-accent-subtle: #0e4163;
+  --vsc-accent-green: #4ec9b0;
+
+  /* ---- Git Decorations ---- */
+  --vsc-git-added: #81b88b;
+  --vsc-git-modified: #e2c08d;
+  --vsc-git-deleted: #c74e39;
+  --vsc-git-untracked: #73c991;
+
+  /* ---- UI Elements ---- */
+  --vsc-scrollbar: #424242;
+  --vsc-scrollbar-hover: #4f4f4f;
+  --vsc-focus-ring: #007acc;
+  --vsc-tab-indicator: #007acc;
+
+  /* ---- Typography ---- */
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --font-ui: 'Segoe UI', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+
+  /* ---- Font Sizes ---- */
+  --text-xs: 11px;
+  --text-sm: 12px;
+  --text-base: 13px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 20px;
+  --text-2xl: 28px;
+  --text-3xl: 36px;
+
+  /* ---- Line Heights ---- */
+  --line-height-editor: 1.5;
+  --line-height-ui: 1.4;
+
+  /* ---- Spacing (4px grid) ---- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+
+  /* ---- Layout Dimensions ---- */
+  --activity-bar-width: 48px;
+  --sidebar-width: 260px;
+  --tab-bar-height: 35px;
+  --status-bar-height: 22px;
+  --breadcrumb-height: 28px;
+}
+
+/* ---- Base Reset ---- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: var(--vsc-bg-editor);
+  color: var(--vsc-text-primary);
+  font-family: var(--font-ui);
+  font-size: var(--text-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---- Custom Scrollbar ---- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vsc-scrollbar);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vsc-scrollbar-hover);
+}
+
+/* ---- Selection ---- */
+::selection {
+  background: var(--vsc-bg-selection);
+  color: var(--vsc-text-active);
+}
+
+/* ---- Links ---- */
+a {
+  color: var(--vsc-text-link);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ---- Code font feature settings ---- */
+code,
+pre,
+.mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "liga" 1, "calt" 1;
+}
+
+/* ============ RESPONSIVE BREAKPOINTS ============ */
+
+@media (max-width: 767px) {
+  :root {
+    --sidebar-width: 80vw;
+    --activity-bar-width: 0px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  :root {
+    --sidebar-width: 220px;
+    --activity-bar-width: 40px;
+  }
+}

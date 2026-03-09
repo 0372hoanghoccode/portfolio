@@ -1,0 +1,61 @@
+---
+import IDELayout from '../layouts/IDELayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import About from '../components/sections/About.astro';
+import Projects from '../components/sections/Projects.astro';
+import Skills from '../components/sections/Skills.astro';
+import Experience from '../components/sections/Experience.astro';
+import Contact from '../components/sections/Contact.astro';
+import ResumeDownload from '../components/sections/ResumeDownload.astro';
+---
+
+<IDELayout
+  activeSection="explorer"
+  pageTitle="README.md"
+  title="Vũ Huy Hoàng — Fullstack Developer"
+  description="Portfolio of Vũ Huy Hoàng — Fullstack Developer specializing in React, Next.js, Spring Boot, Node.js, NestJS and microservices architecture."
+>
+  <Hero />
+  <About />
+  <Projects />
+  <Skills />
+  <Experience />
+  <Contact />
+  <ResumeDownload />
+</IDELayout>
+
+<script>
+  // IntersectionObserver to sync active tab/sidebar when scrolling
+  const sections = ['explorer', 'projects', 'skills', 'git', 'contact'];
+
+  const sectionEls = sections.map(id => ({
+    id,
+    el: document.getElementById(`section-${id}`),
+  })).filter(s => s.el != null);
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const sectionId = entry.target.id.replace('section-', '');
+
+          document.querySelectorAll<HTMLElement>('.tab[data-section]').forEach(tab => {
+            tab.classList.toggle('active', tab.dataset.section === sectionId);
+            tab.setAttribute('aria-selected', tab.dataset.section === sectionId ? 'true' : 'false');
+          });
+
+          document.querySelectorAll<HTMLElement>('.sidebar-item[data-section]').forEach(item => {
+            item.classList.toggle('active', item.dataset.section === sectionId);
+          });
+
+          document.querySelectorAll<HTMLElement>('.activity-bar-item[data-section]').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.section === sectionId);
+          });
+        }
+      });
+    },
+    { threshold: 0.25, rootMargin: '-10% 0px -60% 0px' }
+  );
+
+  sectionEls.forEach(({ el }) => el && observer.observe(el));
+</script>
