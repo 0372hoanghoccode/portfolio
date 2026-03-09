@@ -180,6 +180,16 @@ import { siteConfig } from '../../data/config';
   font-size: var(--text-md);
   line-height: var(--line-height-editor);
   color: var(--vsc-text-primary);
-  white-space: nowrap;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: hidden;
+}
+
+@media (max-width: 767px) {
+  .hero-name { font-size: var(--text-2xl); }
+  .hero-role { font-size: var(--text-md); }
+  .hero-tagline { font-size: var(--text-base); max-width: 100%; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas a { width: 100%; justify-content: center; }
 }
 </style>

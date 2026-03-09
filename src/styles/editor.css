@@ -559,3 +559,125 @@
     transform: translateX(0);
   }
 }
+
+/* ============================================
+   Section Content Mobile Fixes
+   ============================================ */
+
+@media (max-width: 767px) {
+
+  /* Editor layout */
+  .editor-with-lines {
+    flex-direction: row;
+  }
+
+  .line-numbers {
+    display: none;
+  }
+
+  .editor-lines {
+    padding: var(--space-4) var(--space-4);
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  .editor-section {
+    padding: var(--space-4) var(--space-3);
+  }
+
+  /* Fix code lines overflow */
+  .code-line {
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: hidden;
+  }
+
+  /* Hero */
+  .hero-name {
+    font-size: var(--text-2xl) !important;
+  }
+
+  .hero-role {
+    font-size: var(--text-md) !important;
+  }
+
+  .hero-tagline {
+    font-size: var(--text-base) !important;
+  }
+
+  .hero-ctas {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .hero-ctas a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* About */
+  .about-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .about-stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 100% !important;
+  }
+
+  /* Projects */
+  .projects-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-card-links {
+    flex-wrap: wrap;
+  }
+
+  /* Skills */
+  .skills-grid {
+    grid-template-columns: 1fr !important;
+    padding-left: 0 !important;
+  }
+
+  /* Experience */
+  .timeline-entry {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .timeline-date {
+    min-width: unset !important;
+  }
+
+  /* Contact terminal */
+  .terminal-window {
+    margin: 0 !important;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .terminal-body {
+    overflow-x: auto;
+  }
+
+  .term-json {
+    font-size: var(--text-xs) !important;
+    white-space: pre-wrap !important;
+    word-break: break-all !important;
+  }
+
+  /* Breadcrumb */
+  .breadcrumb {
+    font-size: 10px;
+    padding: 0 var(--space-2);
+  }
+
+  /* Tab bar */
+  .tab {
+    font-size: var(--text-xs);
+    padding: 0 var(--space-2);
+  }
+}
