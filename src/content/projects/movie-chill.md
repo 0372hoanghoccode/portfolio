@@ -3,6 +3,7 @@ title: Movie-Chill
 description: A movie streaming & discovery platform with exceptional UI/UX, serving 400+ daily active users and 600+ registered accounts.
 tech: [Next.js, Firebase, TypeScript, Tailwind CSS]
 github: https://github.com/0372hoanghoccode/movie-chill
+live: https://www.phimne.live
 featured: true
 status: active
 stats:

@@ -16,13 +16,13 @@ export const skills: SkillGroup[] = [
     category: 'Backend',
     icon: '⚙️',
     color: '#6DB33F',
-    items: ['Spring Boot', 'Node.js', 'NestJS', 'REST API', 'GraphQL', 'WebSocket'],
+    items: ['Spring Boot', 'Node.js', 'NestJS', 'Spring AI', 'REST API', 'WebSocket'],
   },
   {
     category: 'Databases',
     icon: '🗄️',
     color: '#336791',
-    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Neo4j', 'Redis', 'VectorDB'],
+    items: ['PostgreSQL', 'MySQL', 'MongoDB', 'Neo4j', 'Redis', 'VectorDB / pgvector'],
   },
   {
     category: 'Architecture & Infra',

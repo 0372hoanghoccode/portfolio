@@ -12,6 +12,12 @@ tech:
     Docker,
     LangChain4j,
     RAG,
+    Spring Data JPA,
+    JWT,
+    JUnit,
+    Mockito,
+    JavaMailSender,
+    Spring AI,
     Java,
   ]
 github: https://github.com/0372hoanghoccode/SocialMicro
@@ -50,6 +56,8 @@ SocialMicro is a production-grade social media platform built with a **true micr
 ## Technical Highlights
 
 - Each microservice independently deployable via Docker
-- Saga pattern for distributed transactions
+- Spring Data JPA + JWT authentication per service
 - API Gateway for routing and rate limiting
-- LangChain4j for embedding generation and RAG pipeline
+- JavaMailSender for notification emails
+- JUnit + Mockito for unit testing each service
+- LangChain4j + Spring AI for embedding generation and RAG pipeline

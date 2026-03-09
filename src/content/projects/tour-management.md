@@ -2,14 +2,31 @@
 title: TourManagementSystem
 description: An enterprise-grade tour management platform featuring AI-powered RAG search, real-time WebSocket communication, and event-driven architecture with RabbitMQ.
 tech:
-  [Spring Boot, Next.js, PostgreSQL, RabbitMQ, WebSocket, VectorDB, RAG, Java]
+  [
+    Spring Boot,
+    Next.js,
+    PostgreSQL,
+    Redis,
+    RabbitMQ,
+    WebSocket,
+    VectorDB,
+    RAG,
+    Spring AI,
+    Spring Data JPA,
+    JWT,
+    JUnit,
+    Mockito,
+    JavaMailSender,
+    Java,
+  ]
 github: https://github.com/0372hoanghoccode/TourManagementSystem
 featured: true
 status: active
 stats:
   "Architecture": "Monolith → Modular"
-  "AI Features": "RAG + VectorDB"
+  "AI Features": "RAG + Spring AI"
   "Realtime": "WebSocket"
+  "Cache": "Redis"
 date: 2024-09-01
 order: 2
 ---
@@ -29,8 +46,12 @@ TourManagementSystem is an enterprise-grade platform for managing tours, booking
 
 ## Technical Highlights
 
-- Spring Boot REST API with comprehensive CRUD operations
-- Next.js 14 frontend with Server Components
+- Spring Boot REST API with Spring Data JPA and JWT authentication
+- Spring AI for RAG pipeline and VectorDB integration
+- Redis caching for performance-critical queries
+- JavaMailSender for email notifications
+- JUnit + Mockito for unit and integration testing
+- Next.js frontend with Server Components
 - PostgreSQL + pgvector for vector similarity search
 - RabbitMQ message queuing for event-driven flows
 - WebSocket real-time bidirectional communication
