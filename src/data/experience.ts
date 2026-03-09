@@ -9,6 +9,13 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     date: 'Jan 2026',
+    company: 'react-router / remix-run (Open Source)',
+    role: 'Contributor — PR #14741 & #14714',
+    description: 'Submitted bug fix PRs to react-router — the standard routing library for React used by millions of developers (56k+ GitHub stars). Fixed TypeScript compatibility and URL parsing edge cases.',
+    type: 'project',
+  },
+  {
+    date: 'Jan 2026',
     company: 'shadcn/ui (Open Source)',
     role: 'Contributor — PR #9292 merged',
     description: 'Contributed a bug fix to shadcn/ui — one of the most widely used open-source UI libraries in the React ecosystem (70k+ GitHub stars). PR reviewed and merged by the maintainers.',
