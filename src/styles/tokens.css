@@ -125,6 +125,15 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@media (max-width: 767px) {
+  html,
+  body {
+    overflow: auto;
+    overflow-x: hidden;
+    height: auto;
+  }
+}
+
 /* ---- Custom Scrollbar ---- */
 ::-webkit-scrollbar {
   width: 8px;

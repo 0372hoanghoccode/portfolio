@@ -486,6 +486,19 @@
   .ide-root {
     grid-template-columns: 1fr;
     grid-template-rows: var(--tab-bar-height) 1fr var(--status-bar-height);
+    overflow: visible;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .ide-editor-area {
+    overflow: visible;
+    min-height: 0;
+  }
+
+  .ide-editor-content {
+    overflow: visible;
+    height: auto;
   }
 
   .activity-bar {
@@ -578,11 +591,15 @@
   .editor-lines {
     padding: var(--space-4) var(--space-4);
     min-width: 0;
+    max-width: 100%;
     overflow-x: hidden;
+    word-break: break-word;
   }
 
   .editor-section {
     padding: var(--space-4) var(--space-3);
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   /* Fix code lines overflow */
