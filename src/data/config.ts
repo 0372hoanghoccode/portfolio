@@ -4,7 +4,8 @@ export const siteConfig = {
   tagline: 'Building scalable systems from pixel to microservice',
   github: 'https://github.com/0372hoanghoccode',
   email: 'vuh47009@gmail.com',
-  location: 'Vietnam',
+  location: 'Ho Chi Minh City, Vietnam',
+  phone: '0372174417',
   available: true,
   repoUrl: 'https://github.com/0372hoanghoccode/0372hoanghoccode.github.io',
 } as const;

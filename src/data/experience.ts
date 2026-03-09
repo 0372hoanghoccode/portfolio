@@ -29,6 +29,13 @@ export const experiences: Experience[] = [
     type: 'project',
   },
   {
+    date: '2022 — Present',
+    company: 'Đại học Sài Gòn (Saigon University)',
+    role: 'Bachelor of Information Technology',
+    description: 'Studying Information Technology at Saigon University, Ho Chi Minh City. Built multiple fullstack projects as part of coursework and self-directed learning.',
+    type: 'education',
+  },
+  {
     date: '2024 — 2025',
     company: 'University Project',
     role: 'Fullstack Developer — SocialMicro',
