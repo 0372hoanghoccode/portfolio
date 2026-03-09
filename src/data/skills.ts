@@ -16,7 +16,7 @@ export const skills: SkillGroup[] = [
     category: 'Backend',
     icon: '⚙️',
     color: '#6DB33F',
-    items: ['Spring Boot', 'Node.js', 'NestJS', 'Spring AI', 'REST API', 'WebSocket'],
+    items: ['Spring Boot', 'Node.js', 'NestJS', 'Spring AI', 'Kafka', 'WebSocket'],
   },
   {
     category: 'Databases',

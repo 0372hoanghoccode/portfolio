@@ -12,6 +12,8 @@ tech:
     Docker,
     LangChain4j,
     RAG,
+    Kafka,
+    Cloudinary,
     Spring Data JPA,
     JWT,
     JUnit,
@@ -26,6 +28,7 @@ status: active
 stats:
   "Architecture": "Microservices"
   "Databases": "3 (Neo4j, MongoDB, MySQL)"
+  "Messaging": "Kafka"
   "AI": "RAG + LangChain4j"
 date: 2024-09-01
 order: 3
@@ -49,6 +52,8 @@ SocialMicro is a production-grade social media platform built with a **true micr
 - **Neo4j** graph database for social connections and recommendations
 - **MongoDB** for flexible post/media storage
 - **MySQL** for structured user data and auth
+- **Cloudinary** for image/media storage
+- **Kafka** for event streaming between microservices
 - **LangChain4j RAG** for AI-powered content search & recommendations
 - React frontend consuming multiple microservice APIs
 - Service-to-service JWT authentication
@@ -56,6 +61,8 @@ SocialMicro is a production-grade social media platform built with a **true micr
 ## Technical Highlights
 
 - Each microservice independently deployable via Docker
+- **Kafka** for async event streaming between services
+- **Cloudinary** for media upload and CDN delivery
 - Spring Data JPA + JWT authentication per service
 - API Gateway for routing and rate limiting
 - JavaMailSender for notification emails

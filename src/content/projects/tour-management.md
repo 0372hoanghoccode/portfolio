@@ -25,7 +25,7 @@ status: active
 stats:
   "Architecture": "Monolith → Modular"
   "AI Features": "RAG + Spring AI"
-  "Realtime": "WebSocket"
+  "Payments": "VNPay + PayPal"
   "Cache": "Redis"
 date: 2024-09-01
 order: 2
@@ -38,6 +38,7 @@ TourManagementSystem is an enterprise-grade platform for managing tours, booking
 ## Key Features
 
 - Full tour lifecycle management (create, book, track)
+- **VNPay & PayPal** payment gateway integration
 - **RAG (Retrieval-Augmented Generation)** for intelligent tour recommendations
 - **VectorDB** integration for semantic search across tour descriptions
 - **WebSocket** for real-time notifications and booking updates
