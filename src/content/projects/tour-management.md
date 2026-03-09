@@ -1,6 +1,6 @@
 ---
 title: TourManagementSystem
-description: An enterprise-grade tour management platform featuring AI-powered RAG search, real-time WebSocket communication, and event-driven architecture with RabbitMQ.
+description: A tour management platform featuring AI-powered RAG search, real-time WebSocket communication, and event-driven architecture with RabbitMQ.
 tech:
   [
     Spring Boot,
@@ -33,7 +33,7 @@ order: 2
 
 ## Overview
 
-TourManagementSystem is an enterprise-grade platform for managing tours, bookings, and customer interactions. It combines a robust **Spring Boot** backend with a modern **Next.js** frontend, enriched with AI-powered features.
+TourManagementSystem is an comprehensive platform for managing tours, bookings, and customer interactions. It combines a robust **Spring Boot** backend with a modern **Next.js** frontend, enriched with AI-powered features.
 
 ## Key Features
 

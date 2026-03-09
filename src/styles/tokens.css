@@ -126,8 +126,11 @@ body {
 }
 
 @media (max-width: 767px) {
+
   html,
   body {
+    width: 100%;
+    max-width: 100%;
     overflow: auto;
     overflow-x: hidden;
     height: auto;

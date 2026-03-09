@@ -8,7 +8,8 @@
   grid-template-columns: var(--activity-bar-width) var(--sidebar-width) 1fr;
   grid-template-rows: 1fr var(--status-bar-height);
   height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   overflow: hidden;
   background: var(--vsc-bg-editor);
 }
@@ -200,6 +201,7 @@
   grid-column: 3 / 4;
   display: flex;
   flex-direction: column;
+  min-width: 0;
   overflow: hidden;
   background: var(--vsc-bg-editor);
 }
@@ -211,6 +213,7 @@
   border-bottom: 1px solid var(--vsc-border);
   display: flex;
   align-items: flex-end;
+  min-width: 0;
   overflow-x: auto;
   overflow-y: hidden;
   flex-shrink: 0;
@@ -292,7 +295,10 @@
   color: var(--vsc-text-secondary);
   flex-shrink: 0;
   gap: 4px;
-  overflow: hidden;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
 }
 
 .breadcrumb-sep {
@@ -318,6 +324,7 @@
 /* ---- Editor Content ---- */
 .ide-editor-content {
   flex: 1;
+  min-width: 0;
   overflow-y: auto;
   overflow-x: hidden;
   background: var(--vsc-bg-editor);
@@ -328,6 +335,7 @@
 .editor-with-lines {
   display: flex;
   gap: 0;
+  min-width: 0;
   min-height: 100%;
 }
 
@@ -354,6 +362,7 @@
 
 .editor-lines {
   flex: 1;
+  min-width: 0;
   padding: var(--space-4) var(--space-6);
   font-family: var(--font-mono);
   font-size: var(--text-md);
@@ -376,12 +385,15 @@
   gap: 0;
   user-select: none;
   flex-shrink: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .status-bar-left {
   display: flex;
   align-items: center;
   gap: var(--space-2);
+  min-width: max-content;
 }
 
 .status-bar-right {
@@ -389,6 +401,7 @@
   align-items: center;
   gap: var(--space-2);
   margin-left: auto;
+  min-width: max-content;
 }
 
 .status-item {
@@ -400,6 +413,7 @@
   cursor: pointer;
   transition: background 0.1s ease;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .status-item:hover {
@@ -458,6 +472,7 @@
 
 /* ---- Section containers ---- */
 .editor-section {
+  width: 100%;
   padding: var(--space-8) var(--space-6);
   max-width: 900px;
 }
@@ -594,6 +609,7 @@
     max-width: 100%;
     overflow-x: hidden;
     word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   .editor-section {
@@ -606,6 +622,7 @@
   .code-line {
     white-space: pre-wrap;
     word-break: break-word;
+    overflow-wrap: anywhere;
     overflow-x: hidden;
   }
 
@@ -696,5 +713,98 @@
   .tab {
     font-size: var(--text-xs);
     padding: 0 var(--space-2);
+  }
+}
+
+@media (max-width: 412px) {
+  .ide-root {
+    min-height: 100dvh;
+  }
+
+  .editor-section {
+    padding: var(--space-3) var(--space-2);
+  }
+
+  .editor-lines {
+    padding: var(--space-3) var(--space-3);
+  }
+
+  .tab {
+    gap: 4px;
+    padding: 0 6px;
+  }
+
+  .tab .tab-close {
+    display: none;
+  }
+
+  .breadcrumb {
+    font-size: 9px;
+    padding: 0 6px;
+  }
+
+  .breadcrumb-item {
+    padding: 2px;
+  }
+
+  .status-bar {
+    padding: 0 6px;
+  }
+
+  .status-bar-right {
+    display: none;
+  }
+
+  .hero-name {
+    font-size: 24px !important;
+  }
+
+  .hero-tagline,
+  .md-p,
+  .git-body,
+  .project-description,
+  .skill-dep-line,
+  .terminal-output,
+  .code-line {
+    font-size: var(--text-sm) !important;
+  }
+
+  .about-header,
+  .project-title-row,
+  .git-hash,
+  .resume-actions {
+    flex-wrap: wrap;
+  }
+
+  .about-avatar {
+    width: 84px;
+    height: 84px;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr !important;
+  }
+
+  .project-name {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .project-link,
+  .resume-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .terminal-title {
+    margin-right: 0;
+  }
+
+  .terminal-body {
+    padding: 10px;
+  }
+
+  .term-json {
+    padding: 6px;
   }
 }

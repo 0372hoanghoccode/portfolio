@@ -1,6 +1,8 @@
 ---
 // Resume download section
 // Replace /resume.pdf with the actual resume file path when available
+
+const resumeHref = 'resume.pdf';
 ---
 
 <section id="section-resume" class="editor-section section-enter" style="border-top: 1px solid var(--vsc-border); padding-bottom: 80px;">
@@ -31,7 +33,7 @@
 
       <div class="resume-actions">
         <a
-          href="/resume.pdf"
+          href={resumeHref}
           download="VuHuyHoang_Resume.pdf"
           class="resume-btn primary"
         >

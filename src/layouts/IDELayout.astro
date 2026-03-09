@@ -23,6 +23,9 @@ const {
   title = 'Vũ Huy Hoàng — Fullstack Developer',
   description = 'Portfolio of Vũ Huy Hoàng — Fullstack Developer specializing in React, Next.js, Spring Boot, and microservices architecture.',
 } = Astro.props;
+
+const faviconSvgHref = 'favicon.svg';
+const faviconIcoHref = 'favicon.ico';
 ---
 
 <!doctype html>
@@ -35,7 +38,9 @@ const {
   <meta property="og:description" content={description} />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#1e1e1e" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/svg+xml" href={faviconSvgHref} />
+  <link rel="shortcut icon" href={faviconIcoHref} />
+  <link rel="icon" type="image/x-icon" href={faviconIcoHref} sizes="any" />
   <title>{title}</title>
 </head>
 <body>

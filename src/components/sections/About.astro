@@ -1,5 +1,7 @@
 ---
 import { siteConfig } from '../../data/config';
+
+const avatarSrc = 'my-avatar.jpg';
 ---
 
 <section id="section-explorer-about" class="editor-section section-enter" style="min-height: 60vh; border-top: 1px solid var(--vsc-border);">
@@ -14,7 +16,7 @@ import { siteConfig } from '../../data/config';
       <!-- Avatar + heading row -->
       <div class="about-header">
         <img
-          src="/portfolio/my-avatar.jpg"
+          src={avatarSrc}
           alt={siteConfig.name}
           class="about-avatar"
           width="108"
