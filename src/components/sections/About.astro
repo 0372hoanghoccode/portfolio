@@ -11,8 +11,17 @@ import { siteConfig } from '../../data/config';
     </div>
     <div class="editor-lines">
 
-      <!-- README heading -->
-      <div class="md-h1"># About <span class="token-function">{siteConfig.name}</span></div>
+      <!-- Avatar + heading row -->
+      <div class="about-header">
+        <img
+          src="https://github.com/0372hoanghoccode.png"
+          alt={siteConfig.name}
+          class="about-avatar"
+          width="72"
+          height="72"
+        />
+        <div class="md-h1"># About <span class="token-function">{siteConfig.name}</span></div>
+      </div>
       <div class="code-line">&nbsp;</div>
 
       <div class="md-h2">## Who I Am</div>
@@ -74,6 +83,21 @@ import { siteConfig } from '../../data/config';
 </section>
 
 <style>
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-avatar {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--vsc-border);
+  flex-shrink: 0;
+}
+
 .md-h1 {
   font-family: var(--font-mono);
   font-size: var(--text-xl);

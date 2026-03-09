@@ -21,7 +21,7 @@ stats:
   "Architecture": "Microservices"
   "Databases": "3 (Neo4j, MongoDB, MySQL)"
   "AI": "RAG + LangChain4j"
-date: 2025-01-01
+date: 2024-09-01
 order: 3
 ---
 

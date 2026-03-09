@@ -9,7 +9,7 @@ stats:
   "Daily Users": "400+"
   "Registered Accounts": "600+"
   "UI/UX Rating": "⭐ Praised by users"
-date: 2024-01-01
+date: 2026-01-01
 order: 1
 ---
 

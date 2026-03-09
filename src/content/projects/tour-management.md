@@ -10,7 +10,7 @@ stats:
   "Architecture": "Monolith → Modular"
   "AI Features": "RAG + VectorDB"
   "Realtime": "WebSocket"
-date: 2024-06-01
+date: 2024-09-01
 order: 2
 ---
 
